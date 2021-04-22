@@ -1,3 +1,6 @@
+const SitemapPlugin = require("sitemap-webpack-plugin").default;
+const paths = ["/", "/about", "/contact", "/games", "/sob"];
+
 module.exports = {
   transpileDependencies: ["vuetify"],
 
@@ -9,5 +12,20 @@ module.exports = {
       headless: true,
       onlyProduction: true,
     },
+  },
+
+  configureWebpack: () => {
+    if (process.env.NODE_ENV !== "production") return;
+    return {
+      plugins: [
+        new SitemapPlugin({
+          base: "https://projectstarry.com",
+          paths,
+          options: {
+            filename: "map.xml",
+          },
+        }),
+      ],
+    };
   },
 };
