@@ -1,18 +1,26 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-  </div>
+  <v-app class="home">
+    <index />
+  </v-app>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
-
+import index from "@/components/home/index.vue";
 export default {
   name: "Home",
-  components: {
-    HelloWorld,
+  metaInfo: {
+    title: "Home",
+  },
+  components: { index },
+  mounted() {
+    this.$store.commit("setDrawerModel", 0);
   },
 };
 </script>
+
+<style>
+.home {
+  background-color: transparent !important;
+  max-height: 1280px;
+}
+</style>

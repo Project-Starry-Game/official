@@ -1,5 +1,26 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+  <v-app class="about">
+    <index />
+  </v-app>
 </template>
+
+<script>
+import index from "@/components/about/index.vue";
+export default {
+  name: "About",
+  metaInfo: {
+    title: "About",
+  },
+  components: { index },
+  mounted() {
+    this.$store.commit("setDrawerModel", 1);
+  },
+};
+</script>
+
+<style>
+.about {
+  background-color: transparent !important;
+  max-height: 1528px;
+}
+</style>
