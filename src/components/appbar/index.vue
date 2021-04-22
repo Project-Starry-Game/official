@@ -28,7 +28,7 @@
             :key="index"
             :value="item.active"
             active-class="secondary"
-            :to="{ name: item.url }"
+            :to="item.url"
           >
             <h5 class="white--text Noto">{{ item.name }}</h5>
           </v-list-item>
@@ -53,9 +53,9 @@ export default {
         logo: require("@/assets/logos/new starry logo.png"),
         items: [
           { name: "Home", url: "/" },
-          { name: "About", url: "About" },
-          { name: "Contact", url: "Contact" },
-          { name: "Games", url: "Games" },
+          { name: "About", url: "/about" },
+          { name: "Contact", url: "/contact" },
+          { name: "Games", url: "/games" },
         ],
       },
     };
