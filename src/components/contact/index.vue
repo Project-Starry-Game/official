@@ -23,11 +23,12 @@
                 class="primary--text"
                 label="Email"
                 required
+                v-model="email"
               ></v-text-field>
             </v-card>
             <div style="display: block; height: 50px"></div>
             <v-card class="mx-auto pa-5" color="transparent" elevation="0">
-              <v-textarea label="Message"> </v-textarea>
+              <v-textarea label="Message" v-model="message"> </v-textarea>
             </v-card>
             <v-toolbar elevation="0" color="transparent">
               <v-spacer />
@@ -41,12 +42,26 @@
 </template>
 
 <script>
+import { postForm } from "@/api/postForm.js";
 export default {
   data() {
-    return {};
+    return {
+      googleFormUrl:
+        "https://docs.google.com/forms/u/0/d/e/1FAIpQLSceePJIg4kAjl0oNiKiYp6et-2BTjb0DQoQs1qyRyM9Y9RSNQ/formResponse",
+      email: "",
+      emailEntry: "entry.2106038721",
+      message: "",
+      contentEntry: "entry.820220678",
+    };
   },
   methods: {
-    send() {},
+    send() {
+      let form = document.getElementById("form");
+      let formdata = new FormData(form);
+      formdata.append(this.emailEntry, this.email);
+      formdata.append(this.contentEntry, this.message);
+      postForm(this.googleFormUrl, formdata);
+    },
   },
 };
 </script>

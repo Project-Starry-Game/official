@@ -14,6 +14,6 @@ git commit -m 'deploy'
 
 # deploy 
 echo Deploying.. 
-git push -f "https://github.com/AaronXue0/project-starry.git" master:gh-pages
+git push -f "https://github.com/Project-Starry-Game/official.git" master:gh-pages
 
 cd -
