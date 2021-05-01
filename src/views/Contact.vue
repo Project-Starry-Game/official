@@ -17,6 +17,7 @@ export default {
   },
   methods: {},
   mounted() {
+    document.dispatchEvent(new Event("render-event"));
     this.$store.commit("setDrawerModel", 2);
     document.title = "Contacts";
   },

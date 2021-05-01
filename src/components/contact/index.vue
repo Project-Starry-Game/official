@@ -1,6 +1,6 @@
 <template>
   <v-container class="Noto">
-    <div style="display: block; height: 90px"></div>
+    <div style="display: block; height: 70px"></div>
     <v-form ref="form" id="form">
       <v-row align="center" justify="center">
         <v-col cols="12" md="8" lg="10">
@@ -26,7 +26,7 @@
                 v-model="email"
               ></v-text-field>
             </v-card>
-            <div style="display: block; height: 50px"></div>
+            <div style="display: block; height: 20px"></div>
             <v-card class="mx-auto pa-5" color="transparent" elevation="0">
               <v-textarea label="Message" v-model="message"> </v-textarea>
             </v-card>
@@ -34,6 +34,7 @@
               <v-spacer />
               <v-btn color="white" @click="send" text> Send </v-btn>
             </v-toolbar>
+            <div style="display: block; height: 70px"></div>
           </v-card>
         </v-col>
       </v-row>

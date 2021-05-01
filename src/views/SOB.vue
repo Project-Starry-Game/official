@@ -17,6 +17,9 @@ export default {
   },
   methods: {},
   computed: {},
+  mounted() {
+    document.dispatchEvent(new Event("render-event"));
+  },
 };
 </script>
 

@@ -13,6 +13,7 @@ export default {
   },
   components: { index },
   mounted() {
+    document.dispatchEvent(new Event("render-event"));
     this.$store.commit("setDrawerModel", 1);
   },
 };

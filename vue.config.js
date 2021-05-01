@@ -1,31 +1,40 @@
+const path = require("path");
+// 載入 prerender-spa-plugin (第一步)
+const PrerenderSPAPlugin = require("prerender-spa-plugin");
+// 載入 PuppeteerRenderer (第二步)
+const Renderer = PrerenderSPAPlugin.PuppeteerRenderer;
+
 const SitemapPlugin = require("sitemap-webpack-plugin").default;
 const paths = ["/", "/about", "/contact", "/games", "/sob"];
 
 module.exports = {
   transpileDependencies: ["vuetify"],
 
-  pluginOptions: {
-    prerenderSpa: {
-      registry: undefined,
-      renderRoutes: ["/", "/about", "/contact", "/games", "/sob"],
-      useRenderEvent: true,
-      headless: true,
-      onlyProduction: true,
-    },
-  },
-
-  configureWebpack: () => {
+  configureWebpack: (config) => {
     if (process.env.NODE_ENV !== "production") return;
-    return {
-      plugins: [
-        new SitemapPlugin({
-          base: "https://projectstarry.com",
-          paths,
-          options: {
-            filename: "map.xml",
-          },
+    config.plugins.push(
+      new PrerenderSPAPlugin({
+        staticDir: path.join(__dirname, "dist"),
+        routes: ["/", "/about", "/contact", "/games", "/sob"],
+        minify: {
+          collapseBooleanAttributes: true,
+          collapseWhitespace: true,
+          decodeEntities: true,
+          keepClosingSlash: true,
+          sortAttributes: true,
+        },
+        renderer: new Renderer({
+          renderAfterDocumentEvent: "render-event",
+          headless: false,
         }),
-      ],
-    };
+      }),
+      new SitemapPlugin({
+        base: "https://projectstarry.com",
+        paths,
+        options: {
+          filename: "map.xml",
+        },
+      })
+    );
   },
 };

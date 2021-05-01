@@ -49,7 +49,7 @@ export default {
           icon: "mdi-facebook",
           linking: "https://www.facebook.com/Game-Starry-109356847225732",
         },
-        { icon: "mdi-twitter", linking: "https://twitter.com/projectstarry1" },
+        { icon: "mdi-twitter", linking: "https://twitter.com/projectstarrygm" },
         {
           icon: "mdi-instagram",
           linking: "https://www.instagram.com/starrycom/?hl=en",
