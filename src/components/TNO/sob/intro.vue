@@ -1,0 +1,143 @@
+<template>
+  <v-card elevation="0" color="#E8E7E1" tile>
+    <v-card color="#0d1a24" class="pa-3" tile elevation="0" width="100%">
+      <v-container>
+        <v-row>
+          <v-toolbar elevation="0" color="transparent">
+            <h1>Soul of Butterflies</h1>
+            <v-card-actions class="pa-1 SOBFont">INCUBATION</v-card-actions>
+            <v-btn
+              icon
+              elevation="0"
+              color="transparent"
+              href="https://youtu.be/LQN1eK75n-o"
+            >
+              <v-icon color="red"> mdi-youtube </v-icon>
+            </v-btn>
+          </v-toolbar>
+        </v-row>
+      </v-container>
+    </v-card>
+    <div class="pa-3 black--text fourth--text SOBFont">
+      <v-img :src="poster" id="posterElement" />
+      <div style="display: block; height: 15px"></div>
+      <div>
+        <v-card elevation="0" color="fourth" tile>
+          <v-card-actions>Media</v-card-actions>
+          <a
+            href="https://project-starry.itch.io/soul-of-butterflies-incubation"
+            style="text-decoration: none; position: relative; float: right"
+          >
+            <v-img
+              width="100px"
+              :src="require('@/assets/logos/badge.svg')"
+            ></v-img>
+          </a>
+        </v-card>
+        <v-row justify="center" align="center" style="white-space: nowrap">
+          <v-col cols="4">
+            <a
+              href="https://www.facebook.com/Soul-of-Butterflies-Incubation-101757602075384"
+              style="text-decoration: none"
+            >
+              <v-card-text class="black--text">Facebook</v-card-text>
+            </a>
+          </v-col>
+          <v-col cols="4">
+            <a
+              href="https://www.instagram.com/soul_of_butterflies_com/"
+              style="position: relative; left: -5px; text-decoration: none"
+            >
+              <v-card-text class="black--text">Instagram</v-card-text>
+            </a>
+          </v-col>
+          <v-col cols="4">
+            <a
+              href="https://twitter.com/sobseries_com"
+              style="text-decoration: none"
+            >
+              <v-card-text class="black--text">Twitter</v-card-text>
+            </a>
+          </v-col>
+        </v-row>
+      </div>
+      <div v-for="(item, index) in article" :key="index">
+        <v-card elevation="0" color="fourth" tile>
+          <v-card-actions>{{ item.title }}</v-card-actions>
+        </v-card>
+        <v-card-text style="white-space: pre-line">{{
+          item.content
+        }}</v-card-text>
+      </div>
+      <div>
+        <v-card elevation="0" color="fourth" tile>
+          <v-card-actions>Hostel</v-card-actions>
+        </v-card>
+        <div style="display: block; height: 15px"></div>
+        <v-img :src="require('@/assets/sobs/lobby dark.jpg')"></v-img>
+      </div>
+      <div style="display: block; height: 15px"></div>
+    </div>
+  </v-card>
+</template>
+
+<script>
+export default {
+  props: ["contents"],
+  components: {},
+  data() {
+    return {
+      poster: require("@/assets/sobs/poster3.jpg"),
+      article: [
+        {
+          title: "About the Story.....",
+          content:
+            "Anders was a descendant of the fallen aristocracy-Edwards.\nAfter his parents’ mysterious death, this 12-year-old kid had to take care of his sickly sister on his own.\nDue to the strange disease his sister contracted, Anders needed to afford the high medical expenses toughly during the postwar recession.\nOne day, he received a job invitation from a hostel located in Happy town beside Silver Bridge forest.\nThen he discovered a series of terrifying conspiracies and secrets behind the hostel",
+        },
+        {
+          title: "Game Intro",
+          content:
+            "Incubation is the origin of Soul of Butterflies. In this horror puzzle indie game.\nPlayers could complete the puzzles through clicking or dragging,\n Which makes the gaming experience more interactive.\n Help Anders explore the hidden secrets and the story behind this mysterious hostel.",
+        },
+      ],
+    };
+  },
+  methods: {
+    rndPoster() {
+      let rndPoster = Math.floor(Math.random() * 3) + 1;
+      this.poster = require("@/assets/sobs/poster" + rndPoster + ".jpg");
+      this.slideshow();
+    },
+    fadeOut(self, img) {
+      let fading = setInterval(function () {
+        if (img.style.opacity < 0.5) {
+          let rndPoster = Math.floor(Math.random() * 3) + 1;
+          self.poster = require("@/assets/sobs/poster" + rndPoster + ".jpg");
+          img.style.opacity = 1;
+          clearInterval(fading);
+        } else {
+          img.style.opacity -= 0.1;
+        }
+      }, 10);
+    },
+    slideshow() {
+      var self = this;
+      let img = document.getElementById("posterElement");
+      setInterval(function () {
+        setTimeout(self.fadeOut(self, img), 0);
+      }, 5000);
+    },
+  },
+  computed: {
+    is_screen_small() {
+      return this.$vuetify.breakpoint.xs;
+    },
+    is_screen_large() {
+      return this.$vuetify.breakpoint.lg || this.$vuetify.breakpoint.xl;
+    },
+  },
+  mounted() {
+    this.rndPoster();
+  },
+};
+</script>

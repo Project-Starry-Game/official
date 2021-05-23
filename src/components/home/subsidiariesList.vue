@@ -1,25 +1,46 @@
 <template>
-  <div class="customPadHome">
-    <div style="display: block; height: 50px"></div>
+  <div class="customHome">
+    <div style="display: block; height: 25px"></div>
+    <v-container>
+      <v-row>
+        <v-col cols="4"> <v-card-title>Subsidiaries</v-card-title></v-col>
+        <v-col cols="4">
+          <v-card-title style="position: relative; left: -15px">
+            Games
+          </v-card-title>
+        </v-col>
+      </v-row>
+    </v-container>
     <v-container v-for="(item, index) in items" :key="index">
       <v-card elevation="0" @click="func(item)" color="transparent">
-        <v-row justify="start" align="center">
-          <v-col cols="5">
+        <v-row justify="start">
+          <v-col cols="2">
             <v-img
-              width="150px"
+              width="200px"
               style="position: relative; left: 10px"
               :src="item.teamLogo"
             >
             </v-img>
           </v-col>
-          <v-col cols="2" />
+          <v-col cols="1"></v-col>
+          <v-col cols="1"><div class="vl"></div></v-col>
+          <v-col cols="2">
+            <v-img width="200px" :src="item.gameIcon"> </v-img>
+          </v-col>
           <v-col cols="5">
-            <v-img max-width="250px" max-height="150px" :src="item.gameIcon">
-            </v-img>
+            <v-card-title
+              :class="item.textColor"
+              style="position: relative; left: -10px"
+            >
+              {{ item.gameName }}
+            </v-card-title>
+            <br />
+            <v-card-actions class="black--text">
+              {{ item.gameDesc }}
+            </v-card-actions>
           </v-col>
         </v-row>
       </v-card>
-      <div style="display: block; height: 50px"></div>
     </v-container>
   </div>
 </template>
@@ -74,9 +95,9 @@ export default {
 };
 </script>
 <style>
-.customPadHome {
-  position: relative;
-  margin: 0;
+.customHome {
+  height: 100%;
+  max-height: 650px;
 }
 .vl {
   width: 0.51px; /* Line width */

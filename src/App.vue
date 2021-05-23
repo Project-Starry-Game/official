@@ -1,20 +1,10 @@
 <template>
   <v-app>
-    <appbar class="Noto" />
-    <v-parallax height="100%" :src="require('@/assets/backgroundImage.jpg')">
-      <router-view></router-view>
-      <foot class="Noto" />
-    </v-parallax>
-    <v-overlay :absolute="true" opacity="0.98" :value="overlay" class="SOBFont">
-      {{ loading }}%
-    </v-overlay>
+    <router-view></router-view>
   </v-app>
 </template>
 
 <script>
-import appbar from "@/components/appbar/index.vue";
-import foot from "@/components/footer/index.vue";
-
 export default {
   name: "App",
   metaInfo() {
@@ -32,16 +22,7 @@ export default {
       ],
     };
   },
-  data() {
-    return {
-      overlay: false,
-      loading: "0",
-    };
-  },
-  components: {
-    appbar,
-    foot,
-  },
+  components: {},
   methods: {},
   computed: {},
   async mounted() {},

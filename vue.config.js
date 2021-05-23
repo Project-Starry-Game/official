@@ -15,7 +15,14 @@ module.exports = {
     config.plugins.push(
       new PrerenderSPAPlugin({
         staticDir: path.join(__dirname, "dist"),
-        routes: ["/", "/about", "/contact", "/games", "/sob"],
+        routes: [
+          "/",
+          "/tno",
+          "/tno/about",
+          "/tno/contact",
+          "/tno/games",
+          "/tno/incubation",
+        ],
         minify: {
           collapseBooleanAttributes: true,
           collapseWhitespace: true,

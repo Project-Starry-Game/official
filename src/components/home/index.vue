@@ -1,44 +1,18 @@
 <template>
-  <div class="home-index">
-    <mobile
-      v-if="is_screen_small"
-      :carouselItems="carouselItems"
-      :carouselShadowItems="carouselShadowItems"
-    />
-    <pad
-      v-else-if="is_screen_middle"
-      :carouselItems="carouselItems"
-      :carouselShadowItems="carouselShadowItems"
-    />
-    <desktop
-      v-else
-      :carouselItems="carouselItems"
-      :carouselShadowItems="carouselShadowItems"
-    />
+  <div class="customHome">
+    <mobile class="Noto" v-if="is_screen_small" />
+    <pad class="Noto" v-else-if="is_screen_middle" />
+    <desktop class="Noto" v-else />
   </div>
 </template>
 
 <script>
-import mobile from "@/components/home/mobile.vue";
-import pad from "@/components/home/pad.vue";
-import desktop from "@/components/home/desktop.vue";
+import desktop from "@/components/Home/desktop.vue";
+import pad from "@/components/Home/pad.vue";
+import mobile from "@/components/Home/mobile.vue";
 export default {
-  components: { desktop, mobile, pad },
-  data() {
-    return {
-      carouselItems: [
-        { src: require("@/assets/sobs/poster3.jpg") },
-        { src: require("@/assets/sobs/poster2.jpg") },
-        { src: require("@/assets/sobs/poster1.jpg") },
-      ],
-      carouselShadowItems: [
-        { src: require("@/assets/sobs/poster shadow.jpg") },
-        { src: require("@/assets/sobs/poster shadow1.jpg") },
-        { src: require("@/assets/sobs/poster shadow2.jpg") },
-      ],
-    };
-  },
-  methods: {},
+  components: { desktop, pad, mobile },
+  mounted() {},
   computed: {
     is_screen_small() {
       // ['xs', 'sm'].includes(this.$vuetify.breakpoint.name);
@@ -47,13 +21,15 @@ export default {
     is_screen_middle() {
       return this.$vuetify.breakpoint.md || this.$vuetify.breakpoint.sm;
     },
+    is_screen_large() {
+      return this.$vuetify.breakpoint.lg || this.$vuetify.breakpoint.xl;
+    },
   },
 };
 </script>
-
 <style>
-.home-index {
-  background-color: transparent !important;
-  max-height: 512px;
+.customHome {
+  height: 100%;
+  max-height: 650px;
 }
 </style>
