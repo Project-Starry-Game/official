@@ -38,6 +38,14 @@ export default {
 }
 
 @font-face {
+  font-family: "zpix";
+  src: url("~@/assets/fonts/Zpix.ttf");
+}
+.zpix {
+  font-family: "zpix", "Noto Sans", cursive;
+}
+
+@font-face {
   font-family: "SOB";
   src: url("~@/assets/fonts/Please write me a song.ttf");
 }

@@ -1,11 +1,16 @@
 <template>
-  <div>
+  <div class="zpix">
     <div style="display: block; height: 25px"></div>
-    <v-container>
+    <v-container class="zpix">
       <v-row>
-        <v-col cols="4"> <v-card-title>Subsidiaries</v-card-title></v-col>
         <v-col cols="4">
-          <v-card-title style="position: relative; left: -15px">
+          <v-card-title class="primary--text">Subsidiaries</v-card-title></v-col
+        >
+        <v-col cols="4">
+          <v-card-title
+            class="primary--text"
+            style="position: relative; left: -15px"
+          >
             Games
           </v-card-title>
         </v-col>
@@ -13,7 +18,7 @@
     </v-container>
     <v-container v-for="(item, index) in items" :key="index">
       <v-card elevation="0" @click="func(item)" color="transparent">
-        <v-row justify="start">
+        <v-row justify="start" align="center">
           <v-col cols="2">
             <v-img
               width="200px"
@@ -23,7 +28,7 @@
             </v-img>
           </v-col>
           <v-col cols="1"></v-col>
-          <v-col cols="1"><div class="vl"></div></v-col>
+          <v-col cols="1"></v-col>
           <v-col cols="2">
             <v-img width="200px" :src="item.gameIcon"> </v-img>
           </v-col>
@@ -54,16 +59,16 @@ export default {
           teamLogo: require("@/assets/logos/TNO logo.png"),
           path: "/tno",
           gameIcon: require("@/assets/sobs/incubationicon.png"),
-          gameName: "Soul of Butterflies : Incubation",
+          gameName: "Soul of Butterflies",
           gameDesc: "a series horror room escape games",
-          textColor: "primary--text",
+          textColor: "secondary--text",
         },
         {
           teamLogo: require("@/assets/logos/LOGO2.png"),
           path: null,
           gameIcon: require("@/assets/escapes/icon.png"),
           gameName: "Escape",
-          gameDesc: "an asymmetric party game.",
+          gameDesc: "4-player party game.",
           textColor: "red--text",
         },
       ],
@@ -100,7 +105,7 @@ export default {
   max-height: 650px;
 }
 .vl {
-  width: 0.51px; /* Line width */
+  width: 0.08px; /* Line width */
   background-color: black; /* Line color */
   height: 100%; /* Override in-line if you want specific height. */
   float: left;

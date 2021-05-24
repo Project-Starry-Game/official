@@ -13,7 +13,7 @@
     </v-container>
     <v-container v-for="(item, index) in items" :key="index">
       <v-card elevation="0" @click="func(item)" color="transparent">
-        <v-row justify="start">
+        <v-row justify="center">
           <v-col cols="2">
             <v-img
               width="200px"
@@ -98,11 +98,5 @@ export default {
 .customHome {
   height: 100%;
   max-height: 650px;
-}
-.vl {
-  width: 0.51px; /* Line width */
-  background-color: black; /* Line color */
-  height: 100%; /* Override in-line if you want specific height. */
-  float: left;
 }
 </style>

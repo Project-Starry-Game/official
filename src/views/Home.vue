@@ -12,15 +12,15 @@
         <v-card-title class="ma-2">
           <v-col style="position: relative; top: -17px">
             <v-row>
-              <p class="Noto black--text">Project Starry Game</p>
+              <p class="Noto primary--text">Project Starry Game</p>
               <v-spacer />
-              <p class="Noto black--text" style="font-size: 11px">
+              <p class="Noto primary--text" style="font-size: 11px">
                 © 2019 Starry Game
               </p>
             </v-row>
             <v-row>
               <p
-                class="Noto black--text"
+                class="Noto primary--text"
                 style="
                   font-size: 11px;
                   position: relative;
