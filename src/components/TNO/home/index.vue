@@ -50,6 +50,9 @@ export default {
       return this.$vuetify.breakpoint.md || this.$vuetify.breakpoint.sm;
     },
   },
+  mounted() {
+    this.$router.push("/tno/incubation");
+  },
 };
 </script>
 

@@ -52,10 +52,11 @@ export default {
       contents: {
         logo: require("@/assets/logos/new starry logo.png"),
         items: [
-          { name: "Home", url: "/tno" },
-          { name: "About", url: "/tno/about" },
-          { name: "Contact", url: "/tno/contact" },
-          { name: "Games", url: "/tno/games" },
+          { name: "Incubation", url: "/tno/incubation" },
+          // { name: "Home", url: "/tno" },
+          // { name: "About", url: "/tno/about" },
+          // { name: "Contact", url: "/tno/contact" },
+          // { name: "Games", url: "/tno/games" },
         ],
       },
     };
