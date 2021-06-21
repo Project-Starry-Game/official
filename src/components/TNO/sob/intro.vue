@@ -17,6 +17,32 @@
           </v-toolbar>
         </v-row>
       </v-container>
+      <v-container>
+        <v-row justify="center">
+          <iframe
+            v-if="is_screen_small"
+            frameborder="0"
+            src="https://itch.io/embed/1033029?linkback=true&amp;bg_color=0d1a24&amp;fg_color=ffffff&amp;link_color=fa5c5c&amp;border_color=3b4852"
+            width="189"
+            height="151"
+            ><a
+              href="https://project-starry.itch.io/soul-of-butterflies-incubation"
+              >Soul of Butterflies : Incubation by Project Starry</a
+            ></iframe
+          >
+          <iframe
+            v-else
+            frameborder="0"
+            src="https://itch.io/embed/1033029?bg_color=0d1a24&amp;fg_color=ffffff&amp;link_color=fa5c5c&amp;border_color=3b4852"
+            width="552"
+            height="167"
+            ><a
+              href="https://project-starry.itch.io/soul-of-butterflies-incubation"
+              >Soul of Butterflies : Incubation by Project Starry</a
+            ></iframe
+          >
+        </v-row>
+      </v-container>
     </v-card>
     <div class="pa-3 black--text fourth--text SOBFont">
       <v-img :src="poster" id="posterElement" />
