@@ -53,9 +53,9 @@ export default {
         logo: require("@/assets/logos/new starry logo.png"),
         items: [
           { name: "Incubation", url: "/tno/incubation" },
+          { name: "Contact", url: "/tno/contact" },
           // { name: "Home", url: "/tno" },
           // { name: "About", url: "/tno/about" },
-          // { name: "Contact", url: "/tno/contact" },
           // { name: "Games", url: "/tno/games" },
         ],
       },

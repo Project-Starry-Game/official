@@ -116,14 +116,19 @@ export default {
       poster: require("@/assets/sobs/poster3.jpg"),
       article: [
         {
-          title: "About the Story.....",
-          content:
-            "Anders was a descendant of the fallen aristocracy-Edwards.\nAfter his parents’ mysterious death, this 12-year-old kid had to take care of his sickly sister on his own.\nDue to the strange disease his sister contracted, Anders needed to afford the high medical expenses toughly during the postwar recession.\nOne day, he received a job invitation from a hostel located in Happy town beside Silver Bridge forest.\nThen he discovered a series of terrifying conspiracies and secrets behind the hostel",
-        },
-        {
           title: "Game Intro",
           content:
-            "Incubation is the origin of Soul of Butterflies. In this horror puzzle indie game.\nPlayers could complete the puzzles through clicking or dragging,\n Which makes the gaming experience more interactive.\n Help Anders explore the hidden secrets and the story behind this mysterious hostel.",
+            "Incubation is the origin of Soul of Butterflies series.\n It’s a horror room escape game.\n The game has a western comic art style and a narrative prose storytelling tone. \nIt is set in a huge fiction world made up by our team.",
+        },
+        {
+          title: "Story - The Incubation",
+          content:
+            "In a chaotic postwar era, an empire was plagued with a deadly disease. In order to afford the high medical expense for his sickly sister, Anders spared no effort to find a job. At someday's night, Anders received a job offer from a mysterious hostel. Following the notes on the letter, he arrived at a weird hostel, and started to find the secrets and the conspiracies behind this mysterious hostel.",
+        },
+        {
+          title: "Backstory - The Soul of Butterflies",
+          content:
+            "In 20th century, everything had just come to peace after a hundred-year war. Due to the difference between religions, a severe riot broke out in Republic of Fabre. The army of traitors used a destructive weapon - The Gigantic Monster which has the overwhelming power to devastate Fabre's army. Furthermore, the deadly virus plaguing in the country worsened the situation. Lots of people in Fabre died because of endless war and disease. Despair overwhelmed every citizens in Fabre.\n\nAfter 10 years, a new government was established. Due to the effort of survivors , everything was getting better and stable. However, there's a big conspiracy behind this seemingly positive situation. During these years, The Gigantic Monster mutated. It started to think like human and tried to hunt human for their souls. At the same time, a mysterious hostel showed up in the southern boundary of Fabre...",
         },
       ],
     };

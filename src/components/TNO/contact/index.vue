@@ -31,6 +31,9 @@
               <v-textarea label="Message" v-model="message"> </v-textarea>
             </v-card>
             <v-toolbar elevation="0" color="transparent">
+              <p style="padding-left: 10px">
+                {{ submitState }}
+              </p>
               <v-spacer />
               <v-btn color="white" @click="send" text> Send </v-btn>
             </v-toolbar>
@@ -47,6 +50,7 @@ import { postForm } from "@/api/postForm.js";
 export default {
   data() {
     return {
+      submitState: "",
       googleFormUrl:
         "https://docs.google.com/forms/u/0/d/e/1FAIpQLSceePJIg4kAjl0oNiKiYp6et-2BTjb0DQoQs1qyRyM9Y9RSNQ/formResponse",
       email: "",
@@ -57,11 +61,21 @@ export default {
   },
   methods: {
     send() {
+      this.setSubmitState();
       let form = document.getElementById("form");
       let formdata = new FormData(form);
       formdata.append(this.emailEntry, this.email);
       formdata.append(this.contentEntry, this.message);
       postForm(this.googleFormUrl, formdata);
+    },
+    setSubmitState() {
+      let vm = this;
+      vm.submitState = "Sending message.....";
+      setTimeout(() => {
+        vm.submitState = "Success";
+        vm.email = "";
+        vm.message = "";
+      }, 500);
     },
   },
 };
