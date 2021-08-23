@@ -118,17 +118,17 @@ export default {
         {
           title: "Game Intro",
           content:
-            "Incubation is the origin of Soul of Butterflies series.\n It’s a horror room escape game.\n The game has a western comic art style and a narrative prose storytelling tone. \nIt is set in a huge fiction world made up by our team.",
+            "Soul of Butterflies: Incubation is the origin of the Soul of Butterflies series. Set in a huge fictional world crafted by our team, it is a narrative-based, storytelling horror escape game with a western comic art style.",
         },
         {
           title: "Story - The Incubation",
           content:
-            "In a chaotic postwar era, an empire was plagued with a deadly disease. In order to afford the high medical expense for his sickly sister, Anders spared no effort to find a job. At someday's night, Anders received a job offer from a mysterious hostel. Following the notes on the letter, he arrived at a weird hostel, and started to find the secrets and the conspiracies behind this mysterious hostel.",
+            "In a chaotic postwar era, an empire was plagued by a deadly disease. To afford the high medical expenses for his sickly sister, Anders spared every effort to find a job. One night, Anders received a job offer from a mysterious hostel. Following the directions in the letter, he arrived at a weird place. This was the beginning of the uncovering of the secrets and the conspiracies of this mysterious hostel…",
         },
         {
           title: "Backstory - The Soul of Butterflies",
           content:
-            "In 20th century, everything had just come to peace after a hundred-year war. Due to the difference between religions, a severe riot broke out in Republic of Fabre. The army of traitors used a destructive weapon - Behemoth which has the overwhelming power to devastate Fabre's army. Furthermore, the deadly virus plaguing in the country worsened the situation. Lots of people in Fabre died because of endless war and disease. Despair overwhelmed every citizens in Fabre.\n\nAfter 10 years, a new government was established. Due to the effort of survivors , everything was getting better and stable. However, there's a big conspiracy behind this seemingly positive situation. During these years, The Gigantic Monster mutated. It started to think like human and tried to hunt human for their souls. At the same time, a mysterious hostel showed up in the southern boundary of Fabre...",
+            "In the 20th century, everything had just come to peace after a hundred-year war. Due to the difference between religions, a severe riot broke out in the Republic of Fabre. The army of traitors used a destructive weapon - Behemoth - which devastated Fabre's army with overwhelming power. Furthermore, the deadly virus plaguing the country worsened the situation. Lots of people in Fabre died because of endless war and disease. Despair overwhelmed every citizen in Fabre. After 10 years, a new government was established. Due to the effort of survivors, everything was getting better and stable. However, there's a big conspiracy behind this seemingly positive situation. During these years, The Gigantic Monster mutated. It started to think like humans and tried to hunt humans for their souls. At the same time, a mysterious hostel showed up in the southern boundary of Fabre...",
         },
       ],
     };
