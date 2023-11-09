@@ -79,10 +79,10 @@
       </v-container>
       <v-footer fixed color="transparent">
         <v-row justify="center">
-          <v-col cols="12" md="8" lg="8">
+          <v-col cols="12" md="12" lg="8">
             <v-card-subtitle>
-              contact@projectstarry.com | &copy; Project Starry 2023. All rights
-              reserved.
+              <div>contact@projectstarry.com</div>
+              <div>&copy; Project Starry 2023. All rights reserved.</div>
             </v-card-subtitle>
           </v-col>
         </v-row>
