@@ -153,4 +153,39 @@ p#scrolldown_text {
   margin-left: 8px; /* space between text and arrow */
   /* Additional arrow styling */
 }
+
+/* Keyframe animation for moving right effect */
+@keyframes move-right {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+}
+
+/* Style for the right arrow with the new animation */
+.right-arrow {
+  animation: move-right 1s ease-in-out infinite;
+  display: inline-block; /* Keep the arrow inline with the text */
+}
+
+.next-page-button {
+  /* Existing styles */
+  border: 2px solid #fff; /* White outline */
+  border-radius: 5px; /* Rounded corners for the outline */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+/* Adjust the hover effect for the next-page-button */
+.next-page-button:hover {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0
+  ); /* Slight background color change on hover */
+  border-color: rgba(255, 255, 255, 0); /* Lighten the border color on hover */
+}
 </style>

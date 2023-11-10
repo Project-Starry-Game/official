@@ -1,13 +1,14 @@
 <template>
   <v-app-bar color="transparent" dark elevation="0" flat>
-    <v-img
-      src="@/assets/logo.png"
-      class="pa-2 ma-2"
-      contain
-      height="40"
-      max-width="40"
-      style="display: block; margin-right: auto"
-    ></v-img>
+    <router-link to="/" class="logo-link">
+      <v-img
+        src="@/assets/logo.png"
+        class="pa-2 ma-2"
+        contain
+        height="30"
+        width="30"
+      ></v-img>
+    </router-link>
 
     <v-spacer></v-spacer>
 
@@ -34,4 +35,8 @@
 </script>
 
 <!-- Include any styles specific to your About page here -->
-<style scoped></style>
+<style scoped>
+.logo-link {
+  text-decoration: none; /* Optional: Removes underline from link */
+}
+</style>

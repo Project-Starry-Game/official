@@ -13,8 +13,7 @@
     <div class="background_box">
       <v-img :src="bg_builder" />
       <div class="scrolldown_box">
-        <v-btn @click="scrollToNextSection" color="transparent" elevation="0">
-          <!-- <a class="scroll-btn" id="scroll-btn"></a> -->
+        <v-btn @click="scrollToNextSection" class="next-page-btn">
           Next Page <span class="right-arrow">></span>
         </v-btn>
       </div>
@@ -205,5 +204,46 @@ a#scroll-btn {
   }
 
   /* Adjust padding, margins, and other properties as needed */
+}
+
+/* Styles for the Next Page button */
+.next-page-btn {
+  border: 2px solid white; /* Change as per your design */
+  border-radius: 5px; /* Optional, for rounded corners */
+  padding: 10px 20px; /* Adjust the padding */
+  color: white; /* Text color */
+  font-weight: bold; /* Optional, for bold text */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.next-page-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Slight background on hover */
+}
+
+/* Styles for the right arrow */
+.right-arrow {
+  display: inline-block;
+  margin-left: 5px;
+  transition: transform 0.3s ease; /* Animation for the arrow */
+}
+
+/* Animation on hover */
+.next-page-btn:hover .right-arrow {
+  transform: translateX(5px); /* Moves the arrow to the right */
+}
+
+/* Keyframe animation for the arrow symbol */
+@keyframes arrow-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.right-arrow {
+  animation: arrow-blink 1s infinite; /* Apply the animation to the arrow */
 }
 </style>

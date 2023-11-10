@@ -1,6 +1,7 @@
 <template>
   <v-app>
     <appbar />
+
     <v-main>
       <v-container>
         <!-- Video Row -->
@@ -37,6 +38,9 @@
                 indescribable struggles and fears, they will gradually piece
                 together the truth of this world.
               </v-card-text>
+              <v-col cols="6">
+                <v-img class="pa-0 ma-0" :src="house"></v-img>
+              </v-col>
               <v-card-title> Background story </v-card-title>
               <v-card-text>
                 In the "Republic of Darkcone," a country that has experienced
@@ -81,7 +85,7 @@
         <v-row justify="center">
           <v-col cols="12" md="12" lg="8">
             <v-card-subtitle>
-              <div>contact@projectstarry.com</div>
+              <!-- <div>contact@projectstarry.com</div> -->
               <div>&copy; Project Starry 2023. All rights reserved.</div>
             </v-card-subtitle>
           </v-col>
@@ -98,6 +102,8 @@ import footer from "@/components/About/footer.vue";
 
 import steamLogo from "@/assets/SteamLogo.png";
 import itchLogo from "@/assets/itchLogo.png";
+
+import house from "@/assets/House.png";
 // Script setup block
 </script>
 
@@ -130,6 +136,12 @@ export default {
 .v-card-subtitle,
 .v-card-text {
   text-align: left; /* Aligns text to the left */
+}
+
+.content-wrapper {
+  background-color: rgba(0, 0, 0, 0.7); /* Black with some opacity */
+  padding: 20px; /* Adjust padding as needed */
+  border-radius: 10px; /* Optional, for rounded corners */
 }
 
 iframe {
