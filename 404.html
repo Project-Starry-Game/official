@@ -20,14 +20,8 @@
   <body>
     <div id="app"></div>
     <script>
-      // This will parse the URL and redirect to the correct route
-      (function () {
-        var redirect = sessionStorage.redirect;
-        delete sessionStorage.redirect;
-        if (redirect && redirect != location.href) {
-          history.replaceState(null, null, redirect);
-        }
-      })();
+      sessionStorage.redirect = location.pathname + location.search;
+      location.replace("/"); // Redirect to the home page
     </script>
   </body>
 </html>
