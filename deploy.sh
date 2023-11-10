@@ -1,18 +1,27 @@
 #!/bin/bash
 
+# Increment version number
+version=$(cat version.txt)
+version=$((version+1))
+echo $version > version.txt
+
 # Build the project
 yarn build
+
+# Copy the version file to the build directory
+cp version.txt dist/
 
 # Navigate into the build output directory
 cd dist
 
-# Add fallback redirection script to index.html
-# Make sure to replace 'YOUR_FALLBACK_SCRIPT' with the actual script content
+# Optional: Add fallback redirection script to index.html
 # echo 'YOUR_FALLBACK_SCRIPT' >> index.html
 
-# Copy the custom 404.html after modifying the index.html
-cp ../custom_404.html 404.html
+# Initialize a new git repository
+git init
+git add -A
+git commit -m "Deploy version $version"
+git push -f git@github.com:Project-Starry-Game/official.git main:gh-pages
 
-git init;git add -A;git commit -m 'deploy';git push -f git@github.com:Project-Starry-Game/official.git main:gh-pages
-
+# Return to the previous directory
 cd -

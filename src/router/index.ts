@@ -1,30 +1,23 @@
-// Composables
 import { createRouter, createWebHistory } from "vue-router";
 
+// Define your routes
 const routes = [
   {
     path: "/",
-    // component: () => import("@/layouts/default/Default.vue"),
-    children: [
-      {
-        path: "",
-        name: "Home",
-        // route level code-splitting
-        // this generates a separate chunk (Home-[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component: () => import("@/views/Home.vue"),
-      },
-      {
-        path: "/about",
-        name: "About",
-        component: () =>
-          import(/* webpackChunkName: "about" */ "@/views/About.vue"),
-      },
-    ],
+    name: "Home",
+    component: () => import("@/views/Home.vue"),
   },
+  {
+    path: "/about",
+    name: "About",
+    component: () => import("@/views/About.vue"),
+  },
+  // Add more routes as needed
 ];
 
+// Create router instance
 const router = createRouter({
+  // Use createWebHistory for HTML5 history mode
   history: createWebHistory(process.env.BASE_URL),
   routes,
 });
