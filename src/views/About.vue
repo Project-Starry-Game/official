@@ -122,7 +122,7 @@ export default {
         },
         {
           name: "itch.io",
-          url: "",
+          url: "https://project-starry.itch.io/soul-of-butterflies-incubation",
           img: itchLogo,
           disable: false,
         },
@@ -130,12 +130,6 @@ export default {
           name: "Apple Store",
           url: "https://apps.apple.com/us/app/incubation/id6444002659",
           img: applestore,
-          disable: true,
-        },
-        {
-          name: "Mac Apple Store",
-          url: "https://apps.apple.com/us/app/incubation/id6444002659",
-          img: applestoreMac,
           disable: true,
         },
         // Add more platforms as necessary
