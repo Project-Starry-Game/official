@@ -77,7 +77,7 @@
         <!-- Carousel Row -->
         <v-row justify="center">
           <v-col cols="12" md="8" lg="8">
-            <carousel />
+            <carousel class="carousel-container" />
           </v-col>
         </v-row>
       </v-container>
@@ -102,6 +102,8 @@ import footer from "@/components/About/footer.vue";
 
 import steamLogo from "@/assets/SteamLogo.png";
 import itchLogo from "@/assets/itchLogo.png";
+import applestore from "@/assets/AppleStore.svg";
+import applestoreMac from "@/assets/AppleStoreMac.svg";
 
 import house from "@/assets/House.png";
 // Script setup block
@@ -116,11 +118,25 @@ export default {
           name: "Steam",
           url: "https://store.steampowered.com/app/2391350/Soul_of_Butterflies_Incubation/",
           img: steamLogo,
+          disable: false,
         },
         {
           name: "itch.io",
-          url: "https://project-starry.itch.io/soul-of-butterflies-incubation",
+          url: "",
           img: itchLogo,
+          disable: false,
+        },
+        {
+          name: "Apple Store",
+          url: "https://apps.apple.com/us/app/incubation/id6444002659",
+          img: applestore,
+          disable: true,
+        },
+        {
+          name: "Mac Apple Store",
+          url: "https://apps.apple.com/us/app/incubation/id6444002659",
+          img: applestoreMac,
+          disable: true,
         },
         // Add more platforms as necessary
       ],
@@ -187,10 +203,23 @@ iframe {
   text-decoration: none; /* In case you want to remove underline from anchor tags */
 }
 
+@media (max-width: 600px) {
+  .platform-button {
+    margin: 10px; /* Adjust the value as needed */
+  }
+}
+
+@media (max-width: 600px) {
+  .carousel-container {
+    position: relative;
+    top: -50px;
+  }
+}
+
 /* Style for the image inside the button */
 .platform-button img {
   max-height: 40px; /* or any size you want */
-  max-width: 100%; /* to ensure it doesn't stretch beyond the button */
+  max-width: 90%; /* to ensure it doesn't stretch beyond the button */
 }
 
 .v-footer {
@@ -199,5 +228,9 @@ iframe {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
+}
+
+.grayed-out {
+  filter: grayscale(100%);
 }
 </style>
