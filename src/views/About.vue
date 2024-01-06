@@ -20,43 +20,26 @@
           </v-col>
         </v-row>
 
-        <!-- Textual Information Row -->
-        <v-row justify="center">
+        <v-row
+          justify="center"
+          v-for="(content, index) in contents"
+          :key="index"
+        >
           <v-col cols="12" md="8" lg="8">
             <v-card elevation="0" color="transparent">
-              <v-card-title>Soul of Butterflies: Incubation</v-card-title>
+              <v-card-title>{{ content.title }}</v-card-title>
               <v-card-subtitle>
                 Genre:
-                <span v-for="(genre, index) in genres" :key="index">{{
-                  genre
-                }}</span>
+                <span v-for="(genre, i) in parseTags(content.tags)" :key="i"
+                  >{{ genre }},</span
+                >
               </v-card-subtitle>
-              <v-card-text>
-                "Soul of Butterflies: Incubation" is a point-and-click adventure
-                game with a unique worldview. Players will take on the role of
-                Anders and explore an extremely enigmatic world. Amidst
-                indescribable struggles and fears, they will gradually piece
-                together the truth of this world.
-              </v-card-text>
-              <v-col cols="6">
-                <v-img class="pa-0 ma-0" :src="house"></v-img>
+              <v-card-text v-html="content.body"></v-card-text>
+              <v-col cols="6" v-if="index == 0">
+                <v-img class="pa-0 ma-0" :src="houseImg"></v-img>
               </v-col>
-              <v-card-title> Background story </v-card-title>
-              <v-card-text>
-                In the "Republic of Darkcone," a country that has experienced
-                multiple changes in political power, the people continue to
-                suffer from the ravages of war. At this time, an outbreak of a
-                mysterious infectious disease has once again thrust them into
-                the brink of survival. <br /><br />The protagonist of the story
-                is named "Anders." In order to raise the necessary medical funds
-                for his ailing sister "Nara," he accepts a mysterious job
-                invitation from the "Butterfly Inn." Little does he know that
-                his inner struggles and fears will become a significant test
-                before he embarks on an irreversible adventure…
-              </v-card-text>
             </v-card>
-
-            <v-card elevation="0" color="transparent">
+            <v-card elevation="0" color="transparent" v-if="index == 1">
               <v-card-title>Platforms</v-card-title>
               <v-btn
                 tag="a"
@@ -95,22 +78,23 @@
   </v-app>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts">
+import { defineComponent, ref, onMounted } from "vue";
 import appbar from "@/components/About/appbar.vue";
 import carousel from "@/components/About/carousel.vue";
-import footer from "@/components/About/footer.vue";
-
 import steamLogo from "@/assets/SteamLogo.png";
 import itchLogo from "@/assets/itchLogo.png";
 import applestore from "@/assets/AppleStore.svg";
 import applestoreMac from "@/assets/AppleStoreMac.svg";
-
 import house from "@/assets/House.png";
-// Script setup block
-</script>
 
-<script lang="ts">
-export default {
+interface ContentData {
+  title: string;
+  body: string;
+  tags: string;
+}
+
+export default defineComponent({
   data() {
     return {
       platforms: [
@@ -134,11 +118,37 @@ export default {
         },
         // Add more platforms as necessary
       ],
-      genres: ["Puzzle, ", "Room Escape"],
+      houseImg: house,
     };
   },
-  mounted() {},
-};
+  components: {
+    appbar,
+    carousel,
+  },
+  setup() {
+    const contents = ref<ContentData[]>([]);
+
+    const fetchContent = async () => {
+      try {
+        const response = await fetch("/api/description");
+        const data = await response.json();
+        if (data.message === "success") {
+          contents.value = data.data;
+        }
+      } catch (error) {
+        console.error("Error fetching content:", error);
+      }
+    };
+
+    const parseTags = (tagsString: string) => {
+      return tagsString ? tagsString.split(",") : [];
+    };
+
+    onMounted(fetchContent);
+
+    return { contents, parseTags };
+  },
+});
 </script>
 
 <style scoped>

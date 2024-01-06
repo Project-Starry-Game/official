@@ -3,32 +3,41 @@
     <v-carousel-item
       v-for="(image, index) in images"
       :key="index"
-      :src="image"
+      :src="image.imgSrc"
     ></v-carousel-item>
   </v-carousel>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref, onMounted } from "vue";
 
-// Import each image
-import asset0 from "@/assets/screenshots/asset0.png";
-import asset1 from "@/assets/screenshots/asset1.png";
-import asset2 from "@/assets/screenshots/asset2.png";
-import asset4 from "@/assets/screenshots/asset4.png";
-import asset5 from "@/assets/screenshots/asset5.png";
-import asset6 from "@/assets/screenshots/asset6.png";
+// Define an interface that represents the structure of your image objects
+interface Image {
+  imgSrc: string;
+  // Include other properties if there are any
+}
 
 export default defineComponent({
   setup() {
-    const images = ref<string[]>([
-      asset0,
-      asset1,
-      asset2,
-      asset4,
-      asset5,
-      asset6,
-    ]);
+    // Use the interface in the ref declaration
+    const images = ref<Image[]>([]);
+
+    const fetchImages = async () => {
+      try {
+        const response = await fetch("/api/images");
+        const data = await response.json();
+        if (data.message === "success") {
+          // Cast the data to the Image type
+          images.value = data.data as Image[];
+        }
+      } catch (error) {
+        console.error("Error fetching images:", error);
+      }
+    };
+
+    onMounted(() => {
+      fetchImages();
+    });
 
     return { images };
   },
