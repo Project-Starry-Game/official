@@ -63,7 +63,15 @@
             <carousel class="carousel-container" />
           </v-col>
         </v-row>
+        <v-divider></v-divider>
+        <v-row justify="center">
+          <v-col cols="12" md="8" lg="8">
+            <v-card-title>Contact us</v-card-title>
+            <contact></contact>
+          </v-col>
+        </v-row>
       </v-container>
+
       <v-footer fixed color="transparent">
         <v-row justify="center">
           <v-col cols="12" md="12" lg="8">
@@ -82,6 +90,7 @@
 import { defineComponent, ref, onMounted } from "vue";
 import appbar from "@/components/About/appbar.vue";
 import carousel from "@/components/About/carousel.vue";
+import contact from "@/components/About/contact.vue";
 import steamLogo from "@/assets/SteamLogo.png";
 import itchLogo from "@/assets/itchLogo.png";
 import applestore from "@/assets/AppleStore.svg";
@@ -124,6 +133,7 @@ export default defineComponent({
   components: {
     appbar,
     carousel,
+    contact,
   },
   setup() {
     const contents = ref<ContentData[]>([]);
